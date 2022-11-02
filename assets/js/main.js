@@ -12,6 +12,7 @@ createApp({
     data(){
         return{
             contacts,
+            activeContact : 0,
 
         }
     }
