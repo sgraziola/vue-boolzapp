@@ -17,6 +17,10 @@ createApp({
     methods: {
         activeIndex(index){
             this.activeContact = index;
+        },
+
+        lastMsg(){
+            return this.contacts.messages.lenght - 1
         }
     }
 }).mount("#app");
