@@ -21,8 +21,12 @@ img{
     max-width: 100%;
 }
 
-.top_icon{
+.top_icon img{
     width: 50px;
+}
+
+.list_icon img{
+    width: 65px;
 }
 
 .controls{
@@ -71,4 +75,10 @@ img{
 .wrapper .bottom{
     height: calc(100vh - 100px);
     background-color: var(--boolz-bg);
+}
+
+.text_message p, 
+.time_msg {
+    font-size: 13px;
+    color: var(--boolz-icons);
 }
