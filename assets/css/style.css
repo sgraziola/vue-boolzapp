@@ -1,5 +1,74 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --boolz-head: #009688;
+  --boolz-mic: #6b7376;
+  --boolz-notifications: #8edafc;
+  --boolz-icons: #b1b1b1;
+  --boolz-sent: #d5f9ba;
+  --boolz-bg: #d8dbd6;
+  --boolz-active: #eaeaea;
+  --boolz-lighter: #ffffff;
+  --boolz-bg-mic: #F3EEEA;
+  --boolz-form: #fafafa;
+}
+
+img{
+    max-width: 100%;
+}
+
+.top_icon{
+    width: 50px;
+}
+
+.controls{
+    color: var(--boolz-icons);
+}
+
+.account{
+    background-color: var(--boolz-active);
+}
+
+.controls i{
+    padding: 0 0.5rem;
+}
+
+.notifications{
+    background-color: var(--boolz-notifications);
+}
+
+.bell{
+    color: var(--boolz-notifications);
+    background-color: var(--boolz-lighter);
+    width: 50px;
+    aspect-ratio: 1/1;
+}
+.bell i{
+    font-size: 20px;
+}
+
+.notify_text a{
+    color: var(--boolz-mic);
+    font-size: 15px;
+}
+
+.input-group{
+    background-color: var(--boolz-form);
+}
+
+.input-group-text{
+    color: var(--boolz-icons);
+}
+
+.wrapper .top{
+    height: 100px;
+    background-color: var(--boolz-head);
+}
+.wrapper .bottom{
+    height: calc(100vh - 100px);
+    background-color: var(--boolz-bg);
 }
