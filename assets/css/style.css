@@ -24,7 +24,7 @@ img{
 }
 
 .top_icon img{
-    width: 50px;
+    width: 55px;
 }
 
 .list_icon img{
@@ -71,21 +71,39 @@ img{
 }
 
 .wrapper .top{
-    height: 100px;
+    height: 150px;
     background-color: var(--boolz-head);
 }
 .wrapper .bottom{
-    height: calc(100vh - 100px);
+    height: calc(100vh - 150px);
     background-color: var(--boolz-bg);
 }
-
-.text_message p, 
-.time_msg {
+ 
+.time_msg,
+.text_icon p {
     font-size: 13px;
     color: var(--boolz-icons);
 }
 
 .messages_list{
     overflow: auto;
-    height: calc(100vh - 245px)
+    height: calc(100vh - 250px)
+}
+
+.message_bar{
+    background-color: var(--boolz-bg-mic);
+}
+.message_bar i{
+    font-size: 25px;
+    color: var(--boolz-mic);
+}
+
+.message_bar .form-control{
+    width: 75%;
+}
+
+.text_message{
+    background-image: url("../img/mine.jpg");
+    overflow: auto;
+    height: calc(100vh - 188px)
 }
