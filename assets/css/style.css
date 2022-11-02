@@ -11,10 +11,12 @@
   --boolz-icons: #b1b1b1;
   --boolz-sent: #d5f9ba;
   --boolz-bg: #d8dbd6;
-  --boolz-active: #eaeaea;
+  --boolz-top: #eaeaea;
   --boolz-lighter: #ffffff;
   --boolz-bg-mic: #F3EEEA;
   --boolz-form: #fafafa;
+  --boolz-active: #E9EBEB;
+
 }
 
 img{
@@ -34,7 +36,7 @@ img{
 }
 
 .account{
-    background-color: var(--boolz-active);
+    background-color: var(--boolz-top);
 }
 
 .controls i{
@@ -81,4 +83,9 @@ img{
 .time_msg {
     font-size: 13px;
     color: var(--boolz-icons);
+}
+
+.messages_list{
+    overflow: auto;
+    height: calc(100vh - 245px)
 }
