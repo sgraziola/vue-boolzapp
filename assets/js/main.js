@@ -19,8 +19,12 @@ createApp({
             this.activeContact = index;
         },
 
-        lastMsg(){
-            return this.contacts.messages.lenght - 1
+        time(i){
+            const time = new Date (this.contacts[i].messages[this.contacts[i].messages.length - 1].date);
+            //console.log(time);
+            const hoursAndMinutes = time.getHours() + ':' + time.getMinutes();
+            return hoursAndMinutes;
+
         }
     }
 }).mount("#app");
