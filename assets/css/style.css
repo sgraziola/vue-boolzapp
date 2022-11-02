@@ -108,17 +108,17 @@ img{
     height: calc(100vh - 188px)
 }
 
-.inv{
+.sent{
     background-color: var(--boolz-sent);
     align-self: end;
 }
 
-.rice{
+.received{
     background-color: var(--boolz-lighter);
 }
 
-.inv,
-.rice{
+.sent,
+.received{
     width: 300px;
     border-radius: 0.4rem;
     padding: 0.75rem;

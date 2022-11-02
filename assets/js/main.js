@@ -4,8 +4,6 @@ Visualizzazione dinamica della lista contatti: tramite la direttiva v-for, visua
 
 import contacts from "./database.js"
 
-console.log(contacts);
-
 const { createApp } = Vue;
 
 createApp({
@@ -14,6 +12,11 @@ createApp({
             contacts,
             activeContact : 0,
 
+        }
+    },
+    methods: {
+        activeIndex(index){
+            this.activeContact = index;
         }
     }
 }).mount("#app");
