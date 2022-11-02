@@ -90,6 +90,11 @@ img{
     height: calc(100vh - 250px)
 }
 
+.messages_list li:hover{
+    cursor: pointer;
+    background-color: var(--boolz-top);
+}
+
 .message_bar{
     background-color: var(--boolz-bg-mic);
 }
@@ -123,4 +128,8 @@ img{
     border-radius: 0.4rem;
     padding: 0.75rem;
     margin: 0.5rem 4rem;
+}
+
+.active{
+    background-color: var(--boolz-active);
 }

@@ -82,6 +82,7 @@
               class="d-flex justify-content-between align-items-center border-bottom p-3"
               v-for="(contact, i) in contacts"
               @click="activeIndex(i)"
+              :class="activeContact === i ? 'active' : '' "
             >
               <div class="list_icon d-flex align-items-center">
                 <img
