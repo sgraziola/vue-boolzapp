@@ -58,8 +58,21 @@ createApp({
       const hoursAndMinutes = time.getHours() + ":" + time.getMinutes();
       return hoursAndMinutes;
     },
-},
-computed: {
+
+    filteredContact() {
+      this.contacts.forEach(contact => {
+        if(!contact.name.toLowerCase().includes(this.search.toLowerCase())){
+          console.log(contact.name.includes(this.search));
+          contact.visible = false
+        } else {
+        contact.visible = true
+        }
+      })   
+    }
+  }
+}).mount("#app");
+
+/* computed: {
       filteredContactList() {
         if (this.search){
             return this.contacts.filter((contact) => {
@@ -70,4 +83,4 @@ computed: {
         };
       },
   },
-}).mount("#app");
+ */
