@@ -80,9 +80,20 @@ img{
     background-color: var(--boolz-bg);
 }
  
+.time_icon{
+    font-size: 10px;
+}
+
 .time_msg,
+.fa-chevron-down,
 .text_icon p {
     font-size: 13px;
+}
+
+.time_icon,
+.time_msg,
+.fa-chevron-down,
+.text_icon p {
     color: var(--boolz-icons);
 }
 
@@ -123,14 +134,37 @@ img{
     background-color: var(--boolz-lighter);
 }
 
-.sent,
-.received{
+.message {
     width: 300px;
     border-radius: 0.4rem;
-    padding: 0.75rem;
+    padding: 0.2rem 1rem;
     margin: 0.5rem 4rem;
+    position: relative;
 }
 
 .active{
     background-color: var(--boolz-active);
 }
+
+.fa-chevron-down{
+    visibility: hidden;
+}
+
+.message:hover .fa-chevron-down{
+    visibility: visible;
+}
+
+.dropdown_menu{
+    position: absolute;
+    top: 20px;
+    right: 0;
+    background-color: var(--boolz-lighter);
+}
+
+.dropdown_menu a{
+    text-decoration: none;
+    font-size: 10px;
+    color: black;
+    margin: 1rem;
+}
+

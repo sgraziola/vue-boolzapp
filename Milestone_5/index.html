@@ -74,13 +74,12 @@
               class="form-control border-start-0"
               placeholder="Cerca o inizia una nuova chat"
               aria-label="Cerca o inizia una nuova chat"
-              v-model="search"
+              v-model.trim="search"
             />
           </div>
-          <ul class="unstyled-list messages_list bg-white ps-0">
+          <ul class="list-unstyled messages_list bg-white ps-0">
             <li
-              class="d-flex justify-content-between align-items-center border-bottom p-3"
-              
+              class="d-flex justify-content-between align-items-center border-bottom p-3"  
               v-for="(contact, i) in filteredContactList"
               @click="activeIndex(i)"
               :class="activeContact === i ? 'active' : '' "
@@ -125,10 +124,18 @@
           </div>
           <div class="text_message d-flex flex-column py-4">
             <div
+              class="d-flex flex-column message"
               v-for="(msg, i) in contacts[activeContact].messages"
               :class="contacts[activeContact].messages[i].status === 'sent' ? 'sent' : 'received'"
             >
+            <i @click="details(contacts[activeContact].messages[i])" class="fa-solid fa-chevron-down align-self-end"></i>
+            <ul v-if="on" class="list-unstyled dropdown_menu shadow">
+                <li><a class="dropdown_item" href="#">Message Info</a></li>
+                <li><a class="dropdown_item" href="#">Delete Message</a></li>
+              </ul>
               <span>{{ msg.message }}</span>
+              <div class="time_icon align-self-end">{{time(i)}}</div>
+
             </div>
           </div>
           <div
