@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Boolzapp</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- FontAwesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+
+    <!-- My Style -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+
+  <body>
+    <div class="wrapper position-relative">
+      <div
+        class="container d-flex position-absolute top-0 start-50 translate-middle-x pt-4"
+        id="app"
+      >
+        <div class="col-4">
+          <div
+            class="account d-flex justify-content-between align-items-center p-2"
+          >
+            <div class="top_icon d-flex align-items-center">
+              <img
+                src="./assets/img/avatar_io.jpg"
+                alt=""
+                class="rounded-circle"
+              />
+              <h6 class="mt-2">Sofia</h6>
+            </div>
+            <div class="controls">
+              <i class="fa-solid fa-rotate-right"></i>
+              <i class="fa-solid fa-message"></i>
+              <i class="fa-solid fa-ellipsis-vertical"></i>
+            </div>
+          </div>
+          <div class="notifications d-flex p-3">
+            <div
+              class="bell d-flex justify-content-center align-items-center rounded-circle"
+            >
+              <i class="fa-solid fa-bell-slash"></i>
+            </div>
+            <div class="notify_text ms-2">
+              <h6 class="mb-0">Ricevi notifiche di nuovi messaggi</h6>
+              <a href="#">Attiva notifiche desktop</a>
+            </div>
+          </div>
+          <div class="input-group p-2">
+            <span class="input-group-text bg-white" id="addon-wrapping">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </span>
+            <input
+              type="text"
+              class="form-control border-start-0"
+              placeholder="Cerca o inizia una nuova chat"
+              aria-label="Cerca o inizia una nuova chat"
+              v-model="search"
+            />
+          </div>
+          <ul class="unstyled-list messages_list bg-white ps-0">
+            <li
+              class="d-flex justify-content-between align-items-center border-bottom p-3"
+              
+              v-for="(contact, i) in filteredContactList"
+              @click="activeIndex(i)"
+              :class="activeContact === i ? 'active' : '' "
+            >
+              <div class="list_icon d-flex align-items-center">
+                <img
+                  :src="'./assets/img/avatar' + contact.avatar + '.jpg'"
+                  alt=""
+                  class="rounded-circle"
+                />
+                <div class="text_icon px-2">
+                  <h5 class="m-0">{{contact.name}}</h5>
+                  <p class="m-0">
+                    {{contact.messages[contact.messages.length - 1].message}}
+                  </p>
+                </div>
+              </div>
+              <div class="time_msg align-self-start">{{time(i)}}</div>
+            </li>
+          </ul>
+        </div>
+        <div class="col-8">
+          <div
+            class="account border-start d-flex justify-content-between align-items-center p-2"
+          >
+            <div class="top_icon d-flex align-items-center">
+              <img
+                :src="'./assets/img/avatar' + contacts[activeContact].avatar + '.jpg'"
+                alt=""
+                class="rounded-circle"
+              />
+              <div class="text_icon p-2">
+                <h6 class="m-0">{{ contacts[activeContact].name }}</h6>
+                <p class="m-0">Ultimo accesso oggi alle 12:00</p>
+              </div>
+            </div>
+            <div class="controls">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <i class="fa-solid fa-paperclip"></i>
+              <i class="fa-solid fa-ellipsis-vertical"></i>
+            </div>
+          </div>
+          <div class="text_message d-flex flex-column py-4">
+            <div
+              v-for="(msg, i) in contacts[activeContact].messages"
+              :class="contacts[activeContact].messages[i].status === 'sent' ? 'sent' : 'received'"
+            >
+              <span>{{ msg.message }}</span>
+            </div>
+          </div>
+          <div
+            class="message_bar d-flex align-items-center justify-content-evenly py-2"
+          >
+            <a href="#"><i class="fa-regular fa-face-smile"></i></a>
+            <input
+              class="form-control py-3"
+              type="text"
+              placeholder="Scrivi un messaggio"
+              aria-label="default placeholder"
+              v-model="newMessageSent.message"
+              @keyup.enter="addSentMsg"
+            />
+            <a href="#"><i class="fa-solid fa-microphone"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="top"></div>
+      <div class="bottom"></div>
+    </div>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- VueJs CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- My Script -->
+    <script src="./assets/js/main.js" type="module"></script>
+  </body>
+</html>
