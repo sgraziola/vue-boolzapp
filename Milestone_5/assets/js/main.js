@@ -52,6 +52,17 @@ createApp({
       }, 1000);
     },
 
+    filteredContact() {
+      this.contacts.forEach(contact => {
+        if(!contact.name.toLowerCase().includes(this.search.toLowerCase())){
+          //console.log(contact.name.includes(this.search));
+          contact.visible = false
+        } else {
+        contact.visible = true
+        }
+      })   
+    },
+
     time(i) {
       const time = new Date(
         this.contacts[i].messages[this.contacts[i].messages.length - 1].date
@@ -65,19 +76,7 @@ createApp({
       console.log("cliccato su chevron", index);
       this.on = !this.on
 
-    }
-
+    },
 
 },
-computed: {
-      filteredContactList() {
-        if (this.search){
-            return this.contacts.filter((contact) => {
-              return contact.name.toLowerCase().includes(this.search.toLowerCase())
-            })
-        } else {
-          return this.contacts;
-        };
-      },
-  },
 }).mount("#app");

@@ -62,7 +62,7 @@ createApp({
     filteredContact() {
       this.contacts.forEach(contact => {
         if(!contact.name.toLowerCase().includes(this.search.toLowerCase())){
-          console.log(contact.name.includes(this.search));
+          //console.log(contact.name.includes(this.search));
           contact.visible = false
         } else {
         contact.visible = true
