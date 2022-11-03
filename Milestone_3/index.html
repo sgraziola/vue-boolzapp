@@ -92,7 +92,9 @@
                 />
                 <div class="text_icon px-2">
                   <h5 class="m-0">{{contact.name}}</h5>
-                  <p class="m-0">{{contact.messages[contact.messages.length - 1].message}}</p>
+                  <p class="m-0">
+                    {{contact.messages[contact.messages.length - 1].message}}
+                  </p>
                 </div>
               </div>
               <div class="time_msg align-self-start">{{time(i)}}</div>
@@ -100,10 +102,12 @@
           </ul>
         </div>
         <div class="col-8">
-          <div class="account border-start d-flex justify-content-between align-items-center p-2">
+          <div
+            class="account border-start d-flex justify-content-between align-items-center p-2"
+          >
             <div class="top_icon d-flex align-items-center">
               <img
-              :src="'./assets/img/avatar' + contacts[activeContact].avatar + '.jpg'"
+                :src="'./assets/img/avatar' + contacts[activeContact].avatar + '.jpg'"
                 alt=""
                 class="rounded-circle"
               />
@@ -119,17 +123,28 @@
             </div>
           </div>
           <div class="text_message d-flex flex-column py-4">
-            <div v-for="(msg, i) in contacts[activeContact].messages" :class="contacts[activeContact].messages[i].status === 'sent' ? 'sent' : 'received'">
-                <span>{{ msg.message }}</span>
+            <div
+              v-for="(msg, i) in contacts[activeContact].messages"
+              :class="contacts[activeContact].messages[i].status === 'sent' ? 'sent' : 'received'"
+            >
+              <span>{{ msg.message }}</span>
             </div>
           </div>
-          <div class="message_bar d-flex align-items-center justify-content-evenly py-2">
+          <div
+            class="message_bar d-flex align-items-center justify-content-evenly py-2"
+          >
             <a href="#"><i class="fa-regular fa-face-smile"></i></a>
-            <input class="form-control py-3" type="text" placeholder="Scrivi un messaggio" aria-label="default placeholder">
+            <input
+              class="form-control py-3"
+              type="text"
+              placeholder="Scrivi un messaggio"
+              aria-label="default placeholder"
+              v-model="newMessageSent.message"
+              @keyup.enter="addSentMsg"
+            />
             <a href="#"><i class="fa-solid fa-microphone"></i></a>
           </div>
         </div>
-
       </div>
       <div class="top"></div>
       <div class="bottom"></div>

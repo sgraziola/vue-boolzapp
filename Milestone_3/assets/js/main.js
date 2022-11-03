@@ -13,12 +13,28 @@ createApp({
         return{
             contacts,
             activeContact : 0,
+            newMessageSent: {
+                date: new Date(),
+                message: '',
+                status: 'sent'
+            }
 
         }
     },
     methods: {
         activeIndex(index){
             this.activeContact = index;
+        },
+
+        addSentMsg(){
+            const newMessage = {
+                ...this.newMessageSent
+              }
+            //console.log("ho cliccato su enter");
+            this.contacts[this.activeContact].messages.push(newMessage)
+            //console.log(this.contacts[this.activeContact]);
+            // svuoto l'input dopo che il messaggio é stato inviato e aggiunto a text_message
+              this.newMessageSent.message = ''
         },
 
         time(i){
@@ -28,5 +44,7 @@ createApp({
             return hoursAndMinutes;
 
         }
+        
+
     }
 }).mount("#app");
