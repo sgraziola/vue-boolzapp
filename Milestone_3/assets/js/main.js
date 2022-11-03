@@ -17,8 +17,12 @@ createApp({
                 date: new Date(),
                 message: '',
                 status: 'sent'
-            }
-
+            },
+            newMessageReceived: {
+                date: new Date(),
+                message: 'Ok',
+                status: 'received'
+            },
         }
     },
     methods: {
@@ -34,7 +38,14 @@ createApp({
             this.contacts[this.activeContact].messages.push(newMessage)
             //console.log(this.contacts[this.activeContact]);
             // svuoto l'input dopo che il messaggio é stato inviato e aggiunto a text_message
-              this.newMessageSent.message = ''
+            this.newMessageSent.message = ''
+            this.addReceivedMsg();
+        },
+
+        addReceivedMsg(){
+            setTimeout(()=>{
+                this.contacts[this.activeContact].messages.push(this.newMessageReceived)
+            }, 1000);
         },
 
         time(i){
