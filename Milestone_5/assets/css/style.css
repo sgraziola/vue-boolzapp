@@ -158,7 +158,7 @@ img{
     position: absolute;
     top: 20px;
     right: 0;
-    background-color: var(--boolz-lighter);
+    background-color: lightgoldenrodyellow;
 }
 
 .dropdown_menu a{

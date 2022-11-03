@@ -64,11 +64,14 @@ createApp({
     },
 
     time(i) {
-      const time = new Date(
-        this.contacts[i].messages[this.contacts[i].messages.length - 1].date
-      );
-      //console.log(time);
-      const hoursAndMinutes = time.getHours() + ":" + time.getMinutes();
+      let DateTime = luxon.DateTime;
+      console.log(DateTime);
+      const time = (this.contacts[i].messages[this.contacts[i].messages.length - 1].date.toLocaleString(DateTime.DATETIME_FULL));
+      console.log(time);
+      const hoursAndMinutes = time.toISOTime();
+      console.log(hoursAndMinutes);
+      
+      //getHours() + ":" + time.getMinutes();
       return hoursAndMinutes;
     },
 

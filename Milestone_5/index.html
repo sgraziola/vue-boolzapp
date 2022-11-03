@@ -130,7 +130,7 @@
               :class="contacts[activeContact].messages[i].status === 'sent' ? 'sent' : 'received'"
             >
             <i @click="details(contacts[activeContact].messages[i])" class="fa-solid fa-chevron-down align-self-end"></i>
-            <ul v-if="on" class="list-unstyled dropdown_menu shadow">
+            <ul v-if="on" class="list-unstyled dropdown_menu shadow rounded p-1">
                 <li><a class="dropdown_item" href="#">Message Info</a></li>
                 <li><a class="dropdown_item" href="#">Delete Message</a></li>
               </ul>
@@ -172,6 +172,9 @@
       crossorigin="anonymous"
     ></script>
 
+    <!-- Luxon CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.1.0/build/global/luxon.min.js"></script>
+    
     <!-- VueJs CDN -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
