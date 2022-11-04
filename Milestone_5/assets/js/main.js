@@ -65,14 +65,27 @@ createApp({
 
     time(i) {
       let DateTime = luxon.DateTime;
-      console.log(DateTime);
-      const time = (this.contacts[i].messages[this.contacts[i].messages.length - 1].date.toLocaleString(DateTime.DATETIME_FULL));
-      console.log(time);
-      const hoursAndMinutes = time.toISOTime();
-      console.log(hoursAndMinutes);
+      //console.log(DateTime);
+      let currentDate = DateTime.now()
+      //console.log(currentDate);
+      const hour= currentDate.hour
+      //console.log(hour);
+      currentDate.toISO();
+      //console.log(currentDate);
       
-      //getHours() + ":" + time.getMinutes();
-      return hoursAndMinutes;
+      const timeLastMsg = this.contacts[i].messages[this.contacts[i].messages.length - 1].date 
+      //console.log(timeLastMsg);
+      
+     // timeLastMsg.setLocale("en-US");
+    //console.log(timeLastMsg);
+      /* const time = (this.contacts[i].messages[this.contacts[i].messages.length - 1].date.setLocale('en-US').toLocaleString(DateTime.DATETIME_FULL));
+      console.log(time); */
+     
+
+      //const hoursAndMinutes = timeLastMsg.getHours() + ":" + timeLastMsg.getMinutes();
+      //console.log(hoursAndMinutes);
+      
+      //return hoursAndMinutes;
     },
 
     details(index){

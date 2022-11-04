@@ -127,7 +127,7 @@
             <div
               class="d-flex flex-column message"
               v-for="(msg, i) in contacts[activeContact].messages"
-              :class="contacts[activeContact].messages[i].status === 'sent' ? 'sent' : 'received'"
+              :class="msg.status === 'sent' ? 'sent' : 'received'"
             >
             <i @click="details(contacts[activeContact].messages[i])" class="fa-solid fa-chevron-down align-self-end"></i>
             <ul v-if="on" class="list-unstyled dropdown_menu shadow rounded p-1">
