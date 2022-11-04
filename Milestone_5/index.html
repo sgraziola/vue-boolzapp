@@ -98,7 +98,7 @@
                   </p>
                 </div>
               </div>
-              <div class="time_msg align-self-start">{{time(i)}}</div>
+              <div v-if="contact.messages.length > 0" class="time_msg align-self-start">{{timeLastMsg(i)}}</div>
             </li>
           </ul>
         </div>

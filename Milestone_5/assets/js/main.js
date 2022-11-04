@@ -54,65 +54,36 @@ createApp({
     },
 
     filteredContact() {
-      this.contacts.forEach(contact => {
-        if(!contact.name.toLowerCase().includes(this.search.toLowerCase())){
+      this.contacts.forEach((contact) => {
+        if (!contact.name.toLowerCase().includes(this.search.toLowerCase())) {
           //console.log(contact.name.includes(this.search));
-          contact.visible = false
+          contact.visible = false;
         } else {
-        contact.visible = true
+          contact.visible = true;
         }
-      })   
+      });
     },
 
-    time(i) {
-      /* const DateTime = luxon.DateTime;
-      const timeLastMsg = this.contacts[i].messages[this.contacts[i].messages.length - 1].date
-      DateTime.fromISO(timeLastMsg)
-      console.log(timeLastMsg); */
-
-      /* let DateTime = luxon.DateTime;
-      console.log(DateTime);
-      let currentDate = DateTime.now()
-      console.log(currentDate);
-      const hour= currentDate.hour
-      console.log(hour);
-      
-      let timeLastMsg = this.contacts[i].messages[this.contacts[i].messages.length - 1].date 
-      console.log(timeLastMsg);
-      
-      const hourMsg = timeLastMsg.hour
-      console.log(hourMsg);
-      //timeLastMsg = luxon.DateTime
-      //console.log(timeLastMsg);
-      let time = luxon.timeLastMsg
-      console.log(time); */
-      // timeLastMsg.setLocale("en-US");
-    //console.log(timeLastMsg);
-      /* const time = (this.contacts[i].messages[this.contacts[i].messages.length - 1].date.setLocale('en-US').toLocaleString(DateTime.DATETIME_FULL));
-      console.log(time); */
-     
-
-      //const hoursAndMinutes = timeLastMsg.getHours() + ":" + timeLastMsg.getMinutes();
-      //console.log(hoursAndMinutes);
-      
-      //return hoursAndMinutes;
-     /*  const DateTime = luxon.DateTime;
-      let timeLastMsg = this.contacts[i].messages[this.contacts[i].messages.length - 1].date  */
-      //console.log(timeLastMsg);
-  
-     // return timeLastMsg
-
+    timeLastMsg(i) {
+      const timeLastMsg = this.contacts[i].messages[this.contacts[i].messages.length - 1].date;
+      const msgTime = timeLastMsg.substring(11, timeLastMsg.length - 3);
+      return msgTime  
     },
 
-    details(index){
+    time(i){
+      const timeMsg = this.contacts[this.activeContact].messages[i].date;
+      const msgTime = timeMsg.substring(11, timeMsg.length - 3);
+      return msgTime  
+    },
+
+    details(index) {
       console.log("cliccato su chevron", index);
-      this.messageIndex = index
-      this.on = !this.on
+      this.messageIndex = index;
+      this.on = !this.on;
     },
 
-    
-    deleteMessage(){
-      this.contacts[this.activeContact].messages.splice(this.messageIndex, 1 )
-    }
-},
+    deleteMessage() {
+      this.contacts[this.activeContact].messages.splice(this.messageIndex, 1);
+    },
+  },
 }).mount("#app");
