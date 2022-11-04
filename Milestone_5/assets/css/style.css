@@ -142,6 +142,8 @@ img{
     position: relative;
 }
 
+
+
 .active{
     background-color: var(--boolz-active);
 }

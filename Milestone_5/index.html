@@ -93,7 +93,7 @@
                 />
                 <div class="text_icon px-2">
                   <h5 class="m-0">{{contact.name}}</h5>
-                  <p class="m-0">
+                  <p v-if="contact.messages.length > 0" class="m-0">
                     {{contact.messages[contact.messages.length - 1].message}}
                   </p>
                 </div>
@@ -132,12 +132,12 @@
             <i @click="details(i)" class="fa-solid fa-chevron-down align-self-end"></i>
               <span>{{ msg.message }}</span>
               <div class="time_icon align-self-end">{{time(i)}}</div>
+              <ul v-if="on && messageIndex === i" class="list-unstyled dropdown_menu shadow rounded p-1">
+                  <li><a class="dropdown_item" href="#">Message Info</a></li>
+                  <li><a @click="deleteMessage" class="dropdown_item" href="#">Delete Message</a></li>
+              </ul>
           </div>
             
-            <ul v-if="on" class="list-unstyled dropdown_menu shadow rounded p-1">
-                <li><a class="dropdown_item" href="#">Message Info</a></li>
-                <li><a @click="deleteMessage" class="dropdown_item" href="#">Delete Message</a></li>
-            </ul>
           </div>
           <div
             class="message_bar d-flex align-items-center justify-content-evenly py-2"

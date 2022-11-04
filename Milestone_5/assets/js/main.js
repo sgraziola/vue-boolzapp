@@ -65,19 +65,28 @@ createApp({
     },
 
     time(i) {
-      let DateTime = luxon.DateTime;
-      //console.log(DateTime);
+      /* const DateTime = luxon.DateTime;
+      const timeLastMsg = this.contacts[i].messages[this.contacts[i].messages.length - 1].date
+      DateTime.fromISO(timeLastMsg)
+      console.log(timeLastMsg); */
+
+      /* let DateTime = luxon.DateTime;
+      console.log(DateTime);
       let currentDate = DateTime.now()
-      //console.log(currentDate);
+      console.log(currentDate);
       const hour= currentDate.hour
-      //console.log(hour);
-      currentDate.toISO();
-      //console.log(currentDate);
+      console.log(hour);
       
-      const timeLastMsg = this.contacts[i].messages[this.contacts[i].messages.length - 1].date 
+      let timeLastMsg = this.contacts[i].messages[this.contacts[i].messages.length - 1].date 
+      console.log(timeLastMsg);
+      
+      const hourMsg = timeLastMsg.hour
+      console.log(hourMsg);
+      //timeLastMsg = luxon.DateTime
       //console.log(timeLastMsg);
-      
-     // timeLastMsg.setLocale("en-US");
+      let time = luxon.timeLastMsg
+      console.log(time); */
+      // timeLastMsg.setLocale("en-US");
     //console.log(timeLastMsg);
       /* const time = (this.contacts[i].messages[this.contacts[i].messages.length - 1].date.setLocale('en-US').toLocaleString(DateTime.DATETIME_FULL));
       console.log(time); */
@@ -87,12 +96,18 @@ createApp({
       //console.log(hoursAndMinutes);
       
       //return hoursAndMinutes;
+     /*  const DateTime = luxon.DateTime;
+      let timeLastMsg = this.contacts[i].messages[this.contacts[i].messages.length - 1].date  */
+      //console.log(timeLastMsg);
+  
+     // return timeLastMsg
+
     },
 
     details(index){
       console.log("cliccato su chevron", index);
-      this.on = !this.on
       this.messageIndex = index
+      this.on = !this.on
     },
 
     
