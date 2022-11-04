@@ -13,6 +13,7 @@ createApp({
     return {
       contacts,
       activeContact: 0,
+      messageIndex: 0,
       search: null,
       on: false,
       newMessageSent: {
@@ -91,8 +92,12 @@ createApp({
     details(index){
       console.log("cliccato su chevron", index);
       this.on = !this.on
-
+      this.messageIndex = index
     },
 
+    
+    deleteMessage(){
+      this.contacts[this.activeContact].messages.splice(this.messageIndex, 1 )
+    }
 },
 }).mount("#app");

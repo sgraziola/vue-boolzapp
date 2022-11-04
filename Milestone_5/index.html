@@ -129,15 +129,15 @@
               v-for="(msg, i) in contacts[activeContact].messages"
               :class="msg.status === 'sent' ? 'sent' : 'received'"
             >
-            <i @click="details(contacts[activeContact].messages[i])" class="fa-solid fa-chevron-down align-self-end"></i>
-            <ul v-if="on" class="list-unstyled dropdown_menu shadow rounded p-1">
-                <li><a class="dropdown_item" href="#">Message Info</a></li>
-                <li><a class="dropdown_item" href="#">Delete Message</a></li>
-              </ul>
+            <i @click="details(i)" class="fa-solid fa-chevron-down align-self-end"></i>
               <span>{{ msg.message }}</span>
               <div class="time_icon align-self-end">{{time(i)}}</div>
-
-            </div>
+          </div>
+            
+            <ul v-if="on" class="list-unstyled dropdown_menu shadow rounded p-1">
+                <li><a class="dropdown_item" href="#">Message Info</a></li>
+                <li><a @click="deleteMessage" class="dropdown_item" href="#">Delete Message</a></li>
+            </ul>
           </div>
           <div
             class="message_bar d-flex align-items-center justify-content-evenly py-2"
